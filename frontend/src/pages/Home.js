@@ -8,28 +8,7 @@ function Home() {
   const { workouts, dispatch } = useWorkoutContext(); // global context state
   const { user } = useAuthContext();
   const [searchTerm, setSearchTerm] = useState(""); // State for search filter
-
-  useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/workouts`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-      );
-      const json = await response.json(); // parse JSON response body as JS array of objects
-      if (response.ok) {
-        dispatch({ type: "SET_WORKOUTS", payload: json });
-      }
-    };
-
-    if (user) {
-      fetchWorkouts();
-    }
-  }, [dispatch, user]);
-
+  
   // Filter workouts based on search term
   const filteredWorkouts = workouts
     ? workouts.filter((workout) =>
@@ -57,6 +36,29 @@ function Home() {
           <p>No workouts found</p>
         )}
       </div>
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/workouts`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const json = await response.json(); // parse JSON response body as JS array of objects
+      if (response.ok) {
+        dispatch({ type: "SET_WORKOUTS", payload: json });
+      }
+    };
+
+    if (user) {
+      fetchWorkouts();
+    }
+  }, [dispatch, user]);
+
+
 
       <WorkoutForm />
     </div>
