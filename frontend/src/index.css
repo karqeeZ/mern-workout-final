@@ -35,34 +35,39 @@ header a {
 /* homepage */
 .home {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 0 50px; 
-  align-items: start; 
+  grid-template-columns: 1fr 3fr;
+  gap: 100px;
 }
-
-.workout-container {
-  display: grid;
-  gap: 20px;
-}
-
-.form-container {
-  display: grid;
-}
-
-.search-bar {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
 .workout-details {
+  display: grid;
+  flex-direction: column;
+  gap: 20px;
   background: #fff;
   border-radius: 4px;
+  margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
 }
 
 /* new workout form */
