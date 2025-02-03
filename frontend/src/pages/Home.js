@@ -40,6 +40,7 @@ function Home() {
   return (
     <div className="home">
       {/* Search Bar */}
+    <div className="workouts">
       <input
         type="text"
         placeholder="Search workouts..."
@@ -57,6 +58,7 @@ function Home() {
           <p>No workouts found</p>
         )}
       </div>
+        </div>
       <WorkoutForm />
     </div>
   );
