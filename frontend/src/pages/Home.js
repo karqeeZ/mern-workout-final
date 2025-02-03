@@ -11,22 +11,24 @@ function Home() {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts', {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/workouts`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
         }
-      })
-      const json = await response.json()
-
+      );
+      const json = await response.json(); // parse JSON response body as JS array of objects
       if (response.ok) {
-        dispatch({type: 'SET_WORKOUTS', payload: json})
+        dispatch({ type: "SET_WORKOUTS", payload: json });
       }
-    }
+    };
 
-    if (user) { 
-      fetchWorkouts()
+    if (user) {
+      fetchWorkouts();
     }
-  }, [dispatch])
+  }, [dispatch, user]);
 
  // Filter workouts based on search term
   const filteredWorkouts = workouts
