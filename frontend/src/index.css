@@ -135,6 +135,9 @@ form.signup, form.login{
 .signup h3 {
   color: #1e2a47;
 }
+.login h3 {
+  color: #1e2a47;
+}
 span {
   color: #fff;
 }
