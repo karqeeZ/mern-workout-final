@@ -37,18 +37,22 @@ header a {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap:0 100px;
+  align-items: start;
 }
+.workout-container {
+  display: grid;
+  gap: 20px; /* Controls spacing between workout-details */
+}
+
 .workout-details {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   background: #fff;
   border-radius: 4px;
-  margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
+
+/* Other styles remain the same */
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
